@@ -3,7 +3,13 @@ const express = require( 'express' );
 const PORT= 3000
 const app= express()
 app.use( express.json())
+app.use( express.urlencoded({ extended: true }))
+// set a simple middleware usable to all routes in the application
+app.use((req,res,next)=>{
+    console.log(req.url)
+    next()
 
+})
 
 const groceries = [
     {name:'apple'},
