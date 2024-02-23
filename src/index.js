@@ -16,7 +16,7 @@ app.get('/groceries', (req,res)=>{
 app.post( '/groceries', ( req, res )=>{
     const item = req.body;
     console.log(item)
-    res.send(201)
+    res.send(201, "data created")
 })
 
 
