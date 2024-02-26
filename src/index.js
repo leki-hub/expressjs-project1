@@ -1,6 +1,7 @@
 
 const express = require( 'express' );
-const router = require( '../routes/groceries.js');
+const grocerieRoutes = require( '../routes/groceries.js');
+const marketroutes= require( '../routes/markets.js') ; 
 
 const PORT= 3000
 const app= express()
@@ -12,7 +13,8 @@ app.use((req,res,next)=>{
     next()
 
 })
- app.use('/api/v1/groceries',router);
+ app.use('/api/v1/groceries',grocerieRoutes);
+ app.use("/api/v1/markets",marketroutes)
 
 
 
