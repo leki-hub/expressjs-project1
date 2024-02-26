@@ -33,4 +33,14 @@ router.get('/:item', (req,res)=>{
     const groceryItem= groceries.find(g => g.item ===item)
    res.send(groceryItem)
 })
+
+
+router.get('/cart' , (request,response)=>{
+    const cartItems = request.session.cart
+})
+router.post('/cart/item' , (request,response)=>{
+    const cartItems = request.session.cart
+})
+
+
 module.exports=router;
