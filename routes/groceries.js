@@ -2,6 +2,14 @@ const {Router} = require(express)
 
 const  router = Router();
 
+const groceries = [
+    {item:'apple',
+     quantity:5},
+    
+    {item: 'banana',quantity:10},
+    {item: 'orange',quantity:10}
+]
+
 router.get('/groceries', (req,res)=>{
     res.send(
         groceries
