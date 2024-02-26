@@ -10,14 +10,14 @@ const  supermarkets=[
     {id:3,
         store:"Whole foods",
     miles:3},
-    {id:1,
+    {id:4,
         store:"Whole foods",
     miles:2},
-    {id:2,
+    {id:5,
         store:"John Kim",
     miles:2.5},
-    {id:3,
-        store:"Whole foods",
+    {id:6,
+        store:"Sanders",
     miles:3}
 ];
 marketrouter.get('/', (req,res)=>{
