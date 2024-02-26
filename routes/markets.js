@@ -20,8 +20,9 @@ const  supermarkets=[
         store:"Sanders",
     miles:3}
 ];
-marketrouter.get('/', (req,res)=>{
-    res.send(supermarkets);
+marketrouter.get('/', (request,response)=>{
+    console.log(request.query)
+    response.send(supermarkets);
 })
 
 module.exports = marketrouter
