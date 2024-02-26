@@ -10,12 +10,17 @@ const groceries = [
     {item: 'orange',quantity:10}
 ]
 
-router.get('', (req,res)=>{
+router.get('/', (req,res)=>{
+    res.cookie("logged",true,{
+        maxAge : 1000,
+        httpOnly: true
+    })
+    
     res.send(
         groceries
     )
 })
-router.post( '', ( req, res )=>{
+router.post( '/', ( req, res )=>{
     const item = req.body;
     groceries.push(item)
     console.log(item)
