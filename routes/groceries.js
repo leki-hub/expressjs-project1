@@ -1,4 +1,4 @@
-const {Router} = require(express)
+const {Router} = require('express')
 
 const  router = Router();
 
@@ -27,4 +27,4 @@ router.get('/groceries/:item', (req,res)=>{
     const groceryItem= groceries.find(g => g.item ===item)
    res.send(groceryItem)
 })
-export  default router;
+module.exports=router;
