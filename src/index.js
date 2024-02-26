@@ -11,29 +11,29 @@ app.use((req,res,next)=>{
 
 })
 
-const groceries = [
-    {item:'apple',
-     quantity:5},
+// const groceries = [
+//     {item:'apple',
+//      quantity:5},
     
-    {item: 'banana',quantity:10}
-]
-app.get('/groceries', (req,res)=>{
-    res.send(
-        groceries
-    )
-})
-app.post( '/groceries', ( req, res )=>{
-    const item = req.body;
-    groceries.push(item)
-    console.log(item)
-    res.send(201, "data created")
-})
+//     {item: 'banana',quantity:10}
+// ]
+// app.get('/groceries', (req,res)=>{
+//     res.send(
+//         groceries
+//     )
+// })
+// app.post( '/groceries', ( req, res )=>{
+//     const item = req.body;
+//     groceries.push(item)
+//     console.log(item)
+//     res.send(201, "data created")
+// })
 
-app.get('/groceries/:item', (req,res)=>{
-    const {item} = req.params
-    const groceryItem= groceries.find(g => g.item ===item)
-   res.send(groceryItem)
-})
+// app.get('/groceries/:item', (req,res)=>{
+//     const {item} = req.params
+//     const groceryItem= groceries.find(g => g.item ===item)
+//    res.send(groceryItem)
+// })
 
 
 
