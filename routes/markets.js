@@ -25,7 +25,7 @@ const  supermarkets=[
 marketrouter.get('/', (request,response)=>{
     console.log(request.query)
     const {miles} = request.query;
-    const parsedMile= parseInt(miles);
+    const parsedMile= parseFloat(miles);
     const filteredStores= supermarkets.filter((supermarket)=>supermarket.miles <=parsedMile);
     if(!isNaN(parsedMile)){
       response.send(filteredStores)
