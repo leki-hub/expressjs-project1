@@ -29,7 +29,7 @@ router.post( '/', ( req, res )=>{
 
 router.get('/:item', (req,res)=>{
     const {item} = req.params
-    console.log(req.headers.cookie)
+    console.log(req.cookies)
     const groceryItem= groceries.find(g => g.item ===item)
    res.send(groceryItem)
 })
