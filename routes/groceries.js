@@ -12,7 +12,7 @@ const groceries = [
 
 router.get('/', (req,res)=>{
     res.cookie("logged",true,{
-        maxAge : 1000,
+        maxAge : 6000,
         httpOnly: true
     })
     
@@ -29,6 +29,7 @@ router.post( '/', ( req, res )=>{
 
 router.get('/:item', (req,res)=>{
     const {item} = req.params
+    console.log(req.headers.cookie)
     const groceryItem= groceries.find(g => g.item ===item)
    res.send(groceryItem)
 })
