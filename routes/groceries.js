@@ -36,10 +36,26 @@ router.get('/:item', (req,res)=>{
 
 
 router.get('/cart' , (request,response)=>{
-    const cartItems = request.session.cart
+    let cartItems = request.session.cart
+    if(cartItems){
+
+    } else{}
+
 })
 router.post('/cart/item' , (request,response)=>{
-    const cartItems = request.session.cart
+   const {item,quantity}  = request.body
+   const cardItems = {item,quantity}
+   console.log('card items',cardItems)
+   const{cart}=request.session
+   if(cart){
+ 
+    request.session.cart.items.push(cardItems)
+   }
+   else{
+       request.session.cart={items:[cardItems]}
+       }
+response.send(201, "item added to the cart")
+
 })
 
 
