@@ -35,20 +35,21 @@ router.get('/:item', (req,res)=>{
 })
 
 
-router.get('/cart' , (request,response)=>{
-    let cartItems = request.session.cart
-    if(cartItems){
+router.get('/shopping/cart' , (request,response)=>{
+  const{ cart } = request.session ;
+  if(!cart){
+    response.send('No items added to the cart')
+  }else
+  response.send(cart)
+    } 
 
-    } else{}
-
-})
-router.post('/cart/item' , (request,response)=>{
+)
+router.post('/shopping/cart/item' , (request,response)=>{
    const {item,quantity}  = request.body
    const cardItems = {item,quantity}
    console.log('card items',cardItems)
    const{cart}=request.session
    if(cart){
- 
     request.session.cart.items.push(cardItems)
    }
    else{
