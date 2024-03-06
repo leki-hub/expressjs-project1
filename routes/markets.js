@@ -1,6 +1,6 @@
 const { response } = require("express");
 
-const{Router} = require(('express'));
+const{Router} = require('express');
 const marketrouter= Router();
 const  supermarkets=[
     {id:1,
