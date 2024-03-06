@@ -4,6 +4,7 @@ const grocerieRoutes = require( '../routes/groceries.js');
 const marketroutes= require( '../routes/markets.js') ; 
 const cookieParser = require("cookie-parser")
 const sessionMiddleware  = require('express-session')
+const mongoose = require( "mongoose" ) ;
 const PORT= 3000
 const app= express()
 app.use( express.json())
@@ -23,6 +24,7 @@ app.use((req,res,next)=>{
     next()
 
 })
+
  app.use('/api/v1/groceries',grocerieRoutes);
  app.use("/api/v1/markets",marketroutes)
 
