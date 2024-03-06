@@ -5,7 +5,8 @@ const marketroutes= require( '../routes/markets.js') ;
 const cookieParser = require("cookie-parser")
 const sessionMiddleware  = require('express-session')
 const mongoose = require( "mongoose" ) ;
-const PORT= 3000
+
+
 const app= express()
 app.use( express.json())
 app.use( express.urlencoded({ extended: true }))
@@ -30,19 +31,18 @@ app.use((req,res,next)=>{
 
 
 
-app.listen(process.env.PORT, ()=> console.log(`App running on serverListening on ${process.env.PORT}`))
+app.listen(PORT, ()=> console.log(`App running on serverListening on ${PORT}`))
 
-//link mongoose local to mongoDB
+//link mongoose local to mongoDB atlas
 mongoose
-  .connect(process.env.MongoDB_URL)
+  .connect(process.env.mongoDBURL)
   .then(() => {
     console.log("Connected to MongoDB");
 
-    app.listen(process.env.PORT, () => {
+    app.listen( process.env.PORT, () => {
       console.log(`Server is running on port ${process.env.PORT}`);
     });
   })
   .catch((err) => {
     console.error("Failed to connect to the database", err);
   });
-  
