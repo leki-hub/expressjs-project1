@@ -9,3 +9,5 @@ const userSchema= new mongoose.Schema({
         default: new Date.now()
     }
 })
+
+module.exports = mongoose.model("User",userSchema)
