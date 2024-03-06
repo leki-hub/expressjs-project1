@@ -30,5 +30,19 @@ app.use((req,res,next)=>{
 
 
 
-app.listen(PORT, ()=> console.log(`App running on serverListening on ${PORT}`))
+app.listen(process.env.PORT, ()=> console.log(`App running on serverListening on ${process.env.PORT}`))
 
+//link mongoose local to mongoDB
+mongoose
+  .connect(process.env.MongoDB_URL)
+  .then(() => {
+    console.log("Connected to MongoDB");
+
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to connect to the database", err);
+  });
+  
