@@ -1,10 +1,11 @@
 require('dotenv').config(); // Load environment variables
+require('./database')
 const express = require( 'express' );
 const grocerieRoutes = require( '../routes/groceries.js');
 const marketroutes= require( '../routes/markets.js') ; 
 const cookieParser = require("cookie-parser")
 const sessionMiddleware  = require('express-session')
-const mongoose = require( "mongoose" ) ;
+const authRoute = require('../routes/auth')
 
 
 const app= express()
@@ -28,19 +29,10 @@ app.use((req,res,next)=>{
 
  app.use('/api/v1/groceries',grocerieRoutes);
  app.use("/api/v1/markets",marketroutes)
+ app.use('/api/v1/auth', authRoute);
 
 
 
 app.listen(process.env.PORT, ()=> console.log(`App running on server Listening on ${process.env.PORT}`))
 
 //link mongoose local to mongoDB atlas
-mongoose
-  .connect(process.env.mongoDBURL)
-  .then(() => {
-    console.log("Connected to MongoDB");
-
-
-  })
-  .catch((err) => {
-    console.error("Failed to connect to the database", err);
-  });
