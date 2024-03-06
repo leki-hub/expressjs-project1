@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const User = require('./schemas/user');
+const User = require('../src/schema/user');
 
 const router = Router();
 
@@ -24,6 +24,7 @@ router.post('/register', async (request, response) => {
     response.status(400).send({ msg: 'User already exists!' });
   } else {
     const newUser = await User.create({ username, password, email });
+  
     response.send(201);
   }
 });
