@@ -11,10 +11,7 @@ const groceries = [
 ]
 
 router.get('/', (req,res)=>{
-    res.cookie("logged",true,{
-        maxAge : 6000,
-        httpOnly: true
-    })
+
     
     res.send(
         groceries
