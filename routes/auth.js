@@ -1,16 +1,16 @@
 const { Router } = require('express');
 const User = require('../src/schema/user');
-
+const  hashePassword = require('../src/utils/Helpers')
 const router = Router();
 
 router.post('/login', (request, response) => {
-  const { username, password } = request.body;
-  if (username && password) {
+  const { email, password } = request.body;
+  if (email && password) {
     if (request.session.user) {
       response.send(request.session.user);
     } else {
       request.session.user = {
-        username,
+        email,
       };
       response.send(request.session);
     }
