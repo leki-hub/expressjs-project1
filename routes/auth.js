@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const User = require('../src/schema/user');
-const  hashePassword = require('../src/utils/Helpers')
+const  {hashPassword,comparePasswords} = require('../src/utils/Helpers')
+
 const router = Router();
 
 router.post('/login', (request, response) => {
