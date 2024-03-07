@@ -5,15 +5,15 @@ const  {hashPassword,comparePasswords} = require('../src/utils/Helpers')
 const router = Router();
 
 router.post('/login', (request, response) => {
-  const { email} = request.body;
- const password = request.body.password
+  const { username, password} = request.body;
 
-  if (email && password) {
+
+  if (username && password) {
     if (request.session.user) {
       response.send(request.session.user);
     } else {
       request.session.user = {
-        email,
+       username,
       };
       response.send(request.session);
     }
