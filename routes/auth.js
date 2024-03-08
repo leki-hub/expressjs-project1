@@ -5,14 +5,14 @@ const  {hashPassword,comparePasswords} = require('../src/utils/Helpers')
 const router = Router();
 
 router.post('/login', (request, response) => {
-  const { username, password} = request.body;
+  const { email, password} = request.body;
 
 
   
 });
 
 router.post('/register', async (request, response) => {
-  const { username, email } = request.body;
+  const { email } = request.body;
   const userDB = await User.findOne({ email  });
   if (userDB) {
     response.status(400).send({ msg: 'User already exists!' });
