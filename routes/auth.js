@@ -8,21 +8,12 @@ router.post('/login', (request, response) => {
   const { username, password} = request.body;
 
 
-  if (username && password) {
-    if (request.session.user) {
-      response.send(request.session.user);
-    } else {
-      request.session.user = {
-       username,
-      };
-      response.send(request.session);
-    }
-  } else response.send(401);
+  
 });
 
 router.post('/register', async (request, response) => {
   const { username, email } = request.body;
-  const userDB = await User.findOne({ $or: [{ username }, { email }] });
+  const userDB = await User.findOne({ email  });
   if (userDB) {
     response.status(400).send({ msg: 'User already exists!' });
   } else {
