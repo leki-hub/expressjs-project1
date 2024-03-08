@@ -8,13 +8,18 @@ router.post('/login', async (request, response) => {
   const { email, password} = request.body;
   if (!email || !password )  return response.status(400)
   const userDB= await  User.findOne({ email });
-if(!userDB)
-    return response.status(401)
-  
+if(!userDB)   return response.status(401)
+const isValidated = comparePasswords(password, userDB.password);
+if(isValidated){
+  return response.status(200)
+}
+else {
+  return response.status(401)
+}
 });
 
 router.post('/register', async (request, response) => {
-  const { email } = request.body;
+  const { email,username } = request.body;
   const userDB = await User.findOne({ email  });
   if (userDB) {
     response.status(400).send({ msg: 'User already exists!' });
