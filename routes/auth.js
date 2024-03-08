@@ -8,8 +8,8 @@ router.post('/login', async (request, response) => {
   const { email, password} = request.body;
   if (!email || !password )  return response.status(400)
   const userDB= await  User.findOne({ email });
-
-
+if(!userDB)
+    return response.status(401)
   
 });
 
