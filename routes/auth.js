@@ -12,6 +12,7 @@ if(!userDB)   return response.status(401)
 const isValidated = comparePasswords(password, userDB.password);
 if(isValidated){
 console.log('User validated,  Logged In Successfully!')
+request.session.user=userDB
   return response.status(200)
 }
 else {
