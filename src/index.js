@@ -4,15 +4,16 @@ const express = require( 'express' );
 const grocerieRoutes = require( '../routes/groceries.js');
 const marketroutes= require( '../routes/markets.js') ; 
 const cookieParser = require("cookie-parser")
-const sessionMiddleware  = require('express-session')
-const authRoute = require('../routes/auth')
+const session  = require('express-session')
+const authRoute = require('../routes/auth');
+
 
 
 const app= express()
 app.use( express.json())
 app.use( express.urlencoded({ extended: true }))
 app.use(cookieParser());
-app.use(sessionMiddleware(
+app.use(session(
     {
         secret:"secret",
         resave: false,
@@ -33,6 +34,6 @@ app.use((req,res,next)=>{
 
 
 
-app.listen(process.env.PORT, ()=> console.log(`App running on server Listening on ${process.env.PORT}`))
+app.listen(process.env.PORT, ()=> console.log(`App running on server and Listening on ${process.env.PORT}`))
 
-//link mongoose local to mongoDB atlas
+
