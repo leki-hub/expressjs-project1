@@ -4,6 +4,7 @@ const express = require( 'express' );
 const grocerieRoutes = require( '../routes/groceries.js');
 const marketroutes= require( '../routes/markets.js') ; 
 const cookieParser = require("cookie-parser")
+const passport = require( "passport" )
 const session  = require('express-session')
 const authRoute = require('../routes/auth');
 
@@ -27,6 +28,10 @@ app.use((req,res,next)=>{
     next()
 
 })
+
+
+app.use(passport.initialize())
+app.use(passport.session())
 
  app.use('/api/v1/groceries',grocerieRoutes);
  app.use("/api/v1/markets",marketroutes)
