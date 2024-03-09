@@ -15,7 +15,7 @@ app.use( express.urlencoded({ extended: true }))
 app.use(cookieParser());
 app.use(session(
     {
-        secret:"secret",
+        secret:"0hdd03uns008$890dkff0nsgd",
         resave: false,
         saveUninitialized :false
         
