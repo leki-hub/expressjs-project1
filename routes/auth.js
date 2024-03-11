@@ -1,5 +1,7 @@
 const { Router } = require('express');
 const User = require('../src/schema/user');
+ require('express-session')
+const passport = require( 'passport' );
 const  {hashPassword,comparePasswords} = require('../src/utils/Helpers')
 
 const router = Router();
@@ -12,7 +14,7 @@ if(!userDB)   return response.status(401)
 const isValidated = comparePasswords(password, userDB.password);
 if(isValidated){
 console.log('User validated,  Logged In Successfully!')
-request.session.user=userDB
+request.session.userDetails= userDB
   return response.status(200)
 }
 else {
