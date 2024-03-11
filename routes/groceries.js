@@ -31,9 +31,9 @@ router.get('/:item', (req,res)=>{
    res.send(groceryItem)
 })
 
-
 router.get('/shopping/cart' , (request,response)=>{
   const{ cart } = request.session ;
+  
   if(!cart){
     response.send('No items added to the cart')
   }else
