@@ -1,5 +1,6 @@
 require('dotenv').config(); // Load environment variables
 require('./database')
+require('./strategies/local')
 const express = require( 'express' );
 const grocerieRoutes = require( '../routes/groceries.js');
 const marketroutes= require( '../routes/markets.js') ; 
