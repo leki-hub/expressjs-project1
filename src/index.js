@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser")
 const passport = require( "passport" )
 const session  = require('express-session')
 const authRoute = require('../routes/auth');
+const MongoStore = require('connect-mongo');
 
 
 
@@ -19,7 +20,8 @@ app.use(session(
     {
         secret:"0hdd03uns008$890dkff0nsgd",
         resave: false,
-        saveUninitialized :false
+        saveUninitialized :false,
+        store:  MongoStore.create({ mongoUrl: process.env.mongoDBURL })
         
     }
 ))
