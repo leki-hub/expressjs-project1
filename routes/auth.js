@@ -23,7 +23,10 @@ const router = Router();
 // }
 // });
 // lets use passport and local strategy to login
-router.post("/login", passport.authenticate("local"), function(req, res) {}),
+router.post("/login", passport.authenticate("local"), function(req, res) {
+  console.log('User logged in successfully');
+  res.send(200)
+}),
 
 
 router.post('/register', async (request, response) => {
