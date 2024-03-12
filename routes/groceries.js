@@ -9,6 +9,12 @@ const groceries = [
     {item: 'banana',quantity:10},
     {item: 'orange',quantity:10}
 ]
+// set up a session use middleware
+router.use((req,res,next)=>{
+    console.log(req.user)
+    if(req.session && req.user)next()
+    else res.redirect('/login')
+})
 
 router.get('/', (req,res)=>{
 
